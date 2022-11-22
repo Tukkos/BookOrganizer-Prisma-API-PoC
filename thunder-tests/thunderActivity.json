@@ -27,12 +27,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-11-10T16:42:50.611Z",
-    "modified": "2022-11-10T17:24:58.668Z",
+    "modified": "2022-11-22T13:36:13.077Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"bookTitle\": \"Leopardo Negro, Lobo Vermelho\",\n  \"pages\": 784,\n  \"status\": \"Não iniciado\"\n}",
+      "raw": "{\n  \"bookTitle\": \"Leopardo Negro, Lobo Vermelho 4\",\n  \"pages\": 784\n}",
       "form": []
     },
     "tests": []
@@ -46,12 +46,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2022-11-10T16:42:50.611Z",
-    "modified": "2022-11-10T19:02:26.156Z",
+    "modified": "2022-11-17T13:52:04.195Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"bookTitle\": \"Patati Patata o livro\",\n  \"pages\": 14,\n  \"status\": \"Não iniciado\"\n}",
+      "raw": "{\n  \"bookTitle\": \"Patati Patata o livro\",\n  \"pages\": 14,\n  \"status\": \"N_o_iniciado\"\n}",
       "form": []
     },
     "tests": []
@@ -61,11 +61,11 @@
     "colId": "history",
     "containerId": "",
     "name": "localhost:4000/books/delete/5",
-    "url": "localhost:4000/books/delete/6",
+    "url": "localhost:4000/books/delete/13",
     "method": "DELETE",
     "sortNum": 0,
     "created": "2022-11-10T18:55:02.039Z",
-    "modified": "2022-11-10T19:02:39.950Z",
+    "modified": "2022-11-22T13:37:12.772Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -75,16 +75,16 @@
     "colId": "history",
     "containerId": "",
     "name": "localhost:4000/books/4",
-    "url": "localhost:4000/books/2",
+    "url": "localhost:4000/books/13",
     "method": "PUT",
     "sortNum": 0,
     "created": "2022-11-10T20:21:40.286Z",
-    "modified": "2022-11-10T20:23:38.317Z",
+    "modified": "2022-11-22T13:36:52.217Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"status\": \"Livro lido\"\n}",
+      "raw": "{\n  \"status\": \"Livro_lido\"\n}",
       "form": []
     },
     "tests": []

@@ -1,47 +1,72 @@
-import { Book } from "../protocols/book.js";
-import connection from '../database/dbconnector.js';
-import { QueryResult } from "pg";
+import prisma from '../database/dbconnector.js';
+import { statustype } from "@prisma/client";
 
-function findBooks(): Promise<QueryResult<Book[]>> {
-    return connection.query(`
-        SELECT
-            "bookTitle",
-            "pages",
-            "status"
-        FROM books;
-    `);
+function findBooks() {
+    return prisma.books.findMany();
+    // return connection.query(`
+    //     SELECT
+    //         "bookTitle",
+    //         "pages",
+    //         "status"
+    //     FROM books;
+    // `);
 }
 
-function findOneBook(bookId: number): Promise<QueryResult<Book>> {
-    return connection.query(`
-        SELECT *
-        FROM books
-        WHERE id = $1;
-    `, [bookId]);
+function findOneBook(bookId: number) {
+    return prisma.books.findUnique({
+        where: {
+            id: bookId,
+        },
+    });
+    // return connection.query(`
+    //     SELECT *
+    //     FROM books
+    //     WHERE id = $1;
+    // `, [bookId]);
 }
 
-function insertBooks(bookTitle: string, pages: number, status: string) {
-    return connection.query(`
-        INSERT INTO books
-            ("bookTitle", "pages", "status")
-        VALUES
-            ($1, $2, $3);
-    `, [bookTitle, pages, status]);
+function insertBooks(bookTitle: string, pages: number, status: statustype) {
+    return prisma.books.create({
+        data: {
+            "bookTitle": bookTitle,
+            "pages": pages,
+            "status": status,
+        },
+    })
+    // return connection.query(`
+    //     INSERT INTO books
+    //         ("bookTitle", "pages", "status")
+    //     VALUES
+    //         ($1, $2, $3);
+    // `, [bookTitle, pages, status]);
 }
 
-function updateStatus(status: string, bookId:number) {
-    return connection.query(`
-        UPDATE books
-        SET status = $1
-        WHERE id = $2;
-    `, [status, bookId]);
+function updateStatus(status: statustype, bookId: number) {
+    return prisma.books.update({
+        where: {
+            id: bookId,
+        },
+        data: {
+            status: status,
+        },
+    })
+    // return connection.query(`
+    //     UPDATE books
+    //     SET status = $1
+    //     WHERE id = $2;
+    // `, [status, bookId]);
 }
 
 function excludeBook(bookId: number) {
-    return connection.query(`
-        DELETE FROM books
-        WHERE id = $1;
-    `, [bookId]);
+    return prisma.books.delete({
+        where: {
+            id: bookId,
+        },
+    })
+    // return connection.query(`
+    //     DELETE FROM books
+    //     WHERE id = $1;
+    // `, [bookId]);
 }
 
 export { findBooks, findOneBook, insertBooks, updateStatus, excludeBook };
