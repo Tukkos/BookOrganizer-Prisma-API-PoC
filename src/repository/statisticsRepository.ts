@@ -1,37 +1,22 @@
-import prisma from '../database/dbconnector.js';
+import connection from '../database/dbconnector.js';
+import { QueryResult } from "pg";
 import { Sum } from '../protocols/sum.js';
 import { Count } from '../protocols/count.js';
 
-function pagesRead() {
-    return prisma.books.aggregate({
-        _sum: {
-            pages: true,
-        },
-        where: {
-            status: "Livro_lido"
-        }
-    })
-    // return connection.query(`
-    //     SELECT SUM(pages)
-    //     FROM books
-    //     WHERE status = 'Livro lido';
-    // `);
+function pagesRead(): Promise<QueryResult<Sum>> {
+    return connection.query(`
+        SELECT SUM(pages)
+        FROM books
+        WHERE status = 'Livro lido';
+    `);
 }
 
-function booksRead() {
-    return prisma.books.aggregate({
-        _count: {
-            id: true,
-        },
-        where: {
-            status: "Livro_lido"
-        }
-    })
-    // return connection.query(`
-    //     SELECT COUNT(id) as count
-    //     FROM books
-    //     WHERE status = 'Livro lido';
-    // `);
+function booksRead(): Promise<QueryResult<Count>> {
+    return connection.query(`
+        SELECT COUNT(id) as count
+        FROM books
+        WHERE status = 'Livro lido';
+    `);
 }
 
 export { pagesRead, booksRead };

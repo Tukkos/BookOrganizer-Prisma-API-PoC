@@ -1,11 +1,10 @@
-import { statustype } from '@prisma/client';
 import { Request, Response } from 'express';
 import { Book } from '../protocols/book.js';
 import { excludeBook, findBooks, insertBooks, updateStatus } from '../repository/bookRepository.js';
 
 async function getBooks(req:Request, res:Response) {
     try {
-        const result = await findBooks();
+        const result = (await findBooks()).rows;
         return res.status(200).send(result);
     } catch (error) {
         return res.status(500).send(error.message);
@@ -24,7 +23,7 @@ async function postBooks(req:Request, res:Response) {
 }
 
 async function putStatus(req:Request, res:Response) {
-    const newStatus = req.body.status as statustype;
+    const newStatus = req.body.status as string;
     const bookId = Number(req.params.id);
 
     try {

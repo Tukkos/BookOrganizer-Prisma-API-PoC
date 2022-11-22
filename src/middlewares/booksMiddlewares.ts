@@ -17,7 +17,7 @@ async function checkIfBooksExists(req:Request, res:Response, next) {
     console.log(bookId);
     try {
         const bookExists = await findOneBook(bookId);
-        if (bookExists === undefined) {
+        if (bookExists.rows[0] === undefined) {
             return res.sendStatus(404);
         }
         next()
