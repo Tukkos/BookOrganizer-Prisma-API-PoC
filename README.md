@@ -1,15 +1,14 @@
-# BookOrganizer-Typescript-API-PoC
+# BookOrganizer-Prisma-API-PoC
 
-This project is an study on Typescript(TS), creating an basic CRUD in a Postgres API. To show my studies I decided do make an Book Organizer that can save users books and indicates some statistics about it.
+This project is an study on Prisma ORM, updating an basic CRUD from Postgres to Prisma. To show my studies I decided do update a Book Organizer that can save users books and indicates some statistics about it.
 
 # About 
 
 This project had the purpose to show that I learned how to:
 
-- Configure an basic setup of an API with TS;
-- Understand how some @types works and how some dependencies works with it;
-- Make an CRUD using TS needs without using "Any" type;
-- Understand difference between time of compilation and time of excecution;
+- Update from pg, to Prisma ORM;
+- Understand how to config and use Prisma;
+- Learn basic CRUD and some aggregation functions;
 
 Routes: 
 ```bash
