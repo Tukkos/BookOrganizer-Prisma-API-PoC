@@ -1,6 +1,6 @@
 # BookOrganizer-Prisma-API-PoC
 
-This project is an study on Prisma ORM, updating an basic CRUD from Postgres to Prisma. To show my studies I decided do update a Book Organizer that can save users books and indicates some statistics about it.
+This project is an study on Prisma ORM, updating an basic CRUD from Postgres to Prisma. To show my studies I decided to update a Book Organizer that can save users books and indicates some statistics about it.
 
 # About 
 
@@ -41,6 +41,7 @@ Returning: A string with how many books you have finished;
 ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
 
 # How to run
 
